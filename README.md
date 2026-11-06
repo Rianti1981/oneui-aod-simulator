@@ -1,17 +1,17 @@
-# One UI AOD Simulator
+# One UI AOD Simulator — Root Diagnostic Edition
 
-A small Android clock-screen simulator inspired by Samsung One UI Always On Display.
+Android app for Samsung-style clock preview and read-only SukiSU root diagnostics.
 
-## Included
-- Black background with a white digital clock
-- Date and day display
-- Blue accent styling
-- Dimmed app-window brightness
-- 10-second inactivity timeout; tapping the visible screen restarts the timer
-- GitHub Actions workflow to build a debug APK
+## Features
+- One UI-inspired black clock preview with date and blue accent
+- Preview closes after 10 seconds
+- **Periksa akses ROOT** runs `su -c id` and reads basic device properties
+- **Periksa dukungan touch wake** reads input device names and wakeup flags
+- Does not write to kernel nodes, thermal controls, or system settings
+- GitHub Actions builds a debug APK automatically
 
-## Important device limitation
-This is an app-based visual simulator, not Samsung's system AOD. It does not add AMOLED-style always-on capability to an LCD panel and cannot guarantee waking the display from a fully powered-off state with one tap. The 10-second timer closes the activity; Android then returns to the previous system screen.
+## Device limitation
+The Samsung Galaxy A06 5G uses an LCD panel; this app is not Samsung's native AOD and cannot create true always-on display while the panel is off. A single tap from a fully off display requires touchscreen-driver and kernel support. The diagnostic only reports available read-only information; a wakeup flag alone does not guarantee tap-to-wake.
 
 ## Build
-Open the repository's **Actions** tab and run **Build One UI AOD APK**, or push a commit to the main branch. Download the APK from the workflow run's Artifacts section.
+Open **Actions** and download the `OneUI-AOD-Simulator-debug` artifact from the latest successful run.
